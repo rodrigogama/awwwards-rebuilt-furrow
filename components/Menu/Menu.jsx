@@ -169,26 +169,28 @@ const Menu = () => {
               <SocialMedia />
             </Footer>
           </Container>
-          <VideoContainer ref={videoContainerRef}>
-            <VideoReveal
-              variants={videoRevealVariants}
-              transition={transition}
-              initial="show"
-              animate={isHovering ? 'hidden' : 'show'}
-            />
-            {routes.map(route => (
-              <Video
-                key={route.id}
-                src={`/videos/${route.video}`}
-                variants={videoVariants}
-                initial="hidden"
-                animate={route.id === revealVideo ? 'show' : 'hidden'}
+          {!isMobile && (
+            <VideoContainer ref={videoContainerRef}>
+              <VideoReveal
+                variants={videoRevealVariants}
                 transition={transition}
-                loop
-                autoPlay
-              ></Video>
-            ))}
-          </VideoContainer>
+                initial="show"
+                animate={isHovering ? 'hidden' : 'show'}
+              />
+              {routes.map(route => (
+                <Video
+                  key={route.id}
+                  src={`/videos/${route.video}`}
+                  variants={videoVariants}
+                  initial="hidden"
+                  animate={route.id === revealVideo ? 'show' : 'hidden'}
+                  transition={transition}
+                  loop
+                  autoPlay
+                ></Video>
+              ))}
+            </VideoContainer>
+          )}
         </Backdrop>
       )}
     </AnimatePresence>
