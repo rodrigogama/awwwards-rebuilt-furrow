@@ -62,7 +62,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
-    /* cursor: none; */
+    cursor: none;
   }
   *, *:before, *:after {
     box-sizing: inherit;
